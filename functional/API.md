@@ -19,16 +19,22 @@ De volgorde van acties is als volgt:
 ### Beweging
 
 Vooruit/achteruit in relatie tot de huidige oriëntatie van de tank.
+Success: als er geen obstakel is in de tile waar de tank naartoe beweegt en als de tank niet buiten de map beweegt.
 
 ### Rotatie
 
 Draaien van de turret - Turrets kunnen in 8 posities draaien (N, NE, E, SE, S, SW, W, NW)
+Success: altijd
+
 Draaien van de tank - Tanks kunnen in 4 posities draaien (N, E, S, W)
+Success: als de tank niet in bewegin is
 
 ### Schieten
 
 - Schieten van een kogel, de kogel zal in de richting van de turret worden afgevuurd.
 - Schieten is alleen mogelijk als er munitie beschikbaar is en de turret niet in koelstatus is.
+
+Success: als er munitie beschikbaar is en de turret niet in koelstatus is.
 
 ## Informatie
 
