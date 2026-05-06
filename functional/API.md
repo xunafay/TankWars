@@ -7,9 +7,10 @@ Elke turn krijgt de bot de mogelijkheid om acties uit te voeren en informatie op
 
 ## Acties
 
-Of een actie succesvol is hangt af van de de instelling en van de engine. De API zal een boolean teruggeven die aangeeft of de actie succesvol was of niet.
+Of een actie succesvol is hangt af van de de instelling en van de engine. De API zal een status teruggeven die aangeeft of de actie succesvol was of niet.
 
-Volgorde van acties:
+Alle acties kunnen worden uitgevoerd zolang de tank nog leeft.
+De volgorde van acties is als volgt:
 
 - Beweging
 - Rotatie
@@ -17,7 +18,7 @@ Volgorde van acties:
 
 ### Beweging
 
-Vooruit/achteruit
+Vooruit/achteruit in relatie tot de huidige oriëntatie van de tank.
 
 ### Rotatie
 
@@ -43,23 +44,38 @@ Draaien van de tank - Tanks kunnen in 4 posities draaien (N, E, S, W)
 - Max munitie
 - Koelstatus van de turret in turns (0 als de turret klaar is om te schieten)
 
-### Omgeving
+### Map informatie
 
-- Zichtbare map
-  - Obstakels
-  - Power-ups
+De game werkt met een fog of war systeem. De bot heeft alleen informatie over de tiles die binnen het zicht van de tank liggen. De rest van de map informatie is gelimiteerd tot globale informatie.
 
-- Zichtbare vijanden
+#### Zichtbare tanks
+
+- Identiteit
+- Positie
+- Gezondheid
+- Capabilities
+
+#### Zichtbare kogels
+
+- Positie
+- Oriëntatie
+- Owner (ID van de speler die de kogel heeft afgevuurd)
+- Snelheid
+
+#### Zichtbare tiles
+
+- Tile type
+- (optioneel) obstakel gezondheid
+- (Optioneel) Power-up type
+
+#### Globale map informatie
+
+- Power-up locaties
+- Spelers
   - Identiteit
-  - Positie
-  - Gezondheid
-  - Capabilities
-
-- Zichtbare kogels
-  - Positie
-  - Oriëntatie
-  - Owner (ID van de speler die de kogel heeft afgevuurd)
-  - Snelheid
+  - Levend/dood
+- Turn nummer
+- Map grootte
 
 ## Specificaties
 
@@ -73,7 +89,8 @@ Draaien van de tank - Tanks kunnen in 4 posities draaien (N, E, S, W)
 ### Capabilities
 
 - Kan draaien en bewegen tegelijkertijd
-- Rotatie snelheid
+- Rotatie snelheid tank
+- Rotatie snelheid turret
 - Beweging snelheid
 - Inventory grootte
 - Max munitie
@@ -103,20 +120,3 @@ Max HP
 
 - Aantal kogels
 - Max munitie
-
-### Map informatie
-
-#### Zichtbare tiles
-
-- Tile type
-- (optioneel) obstakel gezondheid
-- (Optioneel) Power-up type
-
-#### Globale map informatie
-
-- Power-up locaties
-- Spelers
-  - Identiteit
-  - Levend/dood
-- Turn nummer
-- Map grootte
