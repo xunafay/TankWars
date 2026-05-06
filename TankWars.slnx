@@ -1,1 +1,3 @@
-<Solution />
+<Solution>
+  <Project Path="TankWars.Console/TankWars.Console.csproj" />
+</Solution>
