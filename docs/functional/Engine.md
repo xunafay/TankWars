@@ -31,6 +31,7 @@ Als een bot vraagt om zijn tank te bewegen moet er rekening gehouden worden met 
 - Blijft de tank binnen de map?
 - Is de tile waar de tank naartoe wilt bewegen betreedbaar?
 - Is de tile al bezet door een andere tank?
+- Is er al een andere tank die naar deze tile wilt bewegen?
 
 Als alle voorwaarden goed zijn gaat de tank naar de volgende tile.
 
