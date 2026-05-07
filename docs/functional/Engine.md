@@ -35,9 +35,9 @@ Als een bot vraagt om zijn tank te bewegen moet er rekening gehouden worden met 
 
 Als alle voorwaarden goed zijn gaat de tank naar de volgende tile.
 
-### Draai tanks
+### Draai turrets
 
-Als een bot vraagt om de tank te draaien, draait de tank naar de nieuwe richting
+Als een bot vraagt om de tank te draaien, draait de tank naar de nieuwe richting.
 
 ### Schiet voor elke tank
 
@@ -59,7 +59,9 @@ Een kogel beweegt elke turn x tiles in de richting waarin deze geschoten is. Voo
 
 Indien de kogel gestopt wordt door een tank moet de tank zijn health aangepast worden op basis van de tile waar de tank op staat.
 
-Als de kogel uit de map is of door een tile wordt gestopt wordt de kogel uit het spel verwijderd.
+Als de kogel een tile raakt die de kogel stopt gaat de tile zijn health omlaag, een tile die geen health meer heeft wordt vervangen door een andere tile (nog te bepalen welke) die geen kogels stopt.
+
+Als de kogel uit de map gaat wordt de kogel uit het spel verwijderd.
 
 ### Check of het spel klaar is
 
