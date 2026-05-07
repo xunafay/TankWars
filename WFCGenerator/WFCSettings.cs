@@ -9,7 +9,7 @@ public record struct WFCSettings
     /// <summary>
     /// The example the WFC will base itself on
     /// </summary>
-    public required int[] Example
+    public required byte[] Example
     {
         get; init;
     }
