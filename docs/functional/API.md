@@ -10,11 +10,7 @@ Elke turn krijgt de bot de mogelijkheid om acties uit te voeren en informatie op
 Of een actie succesvol is hangt af van de de instelling en van de engine. De API zal een status teruggeven die aangeeft of de actie succesvol was of niet.
 
 Alle acties kunnen worden uitgevoerd zolang de tank nog leeft.
-De volgorde van acties is als volgt:
-
-- Beweging
-- Rotatie
-- Schieten
+De volgorde van de acties vind je terug in [Engine.md](Engine.md).
 
 ### Beweging
 
