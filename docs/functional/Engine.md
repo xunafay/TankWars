@@ -14,15 +14,21 @@ De engine heeft volgende argumenten nodig om te kunnen starten:
 In een turn moeten volgende zaken gebeuren in volgende volgorde:
 
 1. Reset tank states (HasFired, HasMoved...)
-2. Doe alle beweeg tank acties
-3. Doe alle draai acties
-4. Doe alle schiet acties
-5. Beweeg alle kogels
-6. Check of het spel klaar is
+2. Doe alle draai tank acties
+3. Doe alle beweeg tank acties
+4. Doe alle draai acties
+5. Doe alle schiet acties
+6. Beweeg alle kogels
+7. Check of het spel klaar is
 
 ### Reset tank states
 
 Alvorens er iets kan gebeuren moet alle state terug gereset worden. Vermoedelijk in de vorm van een `tank.ResetState()`
+
+### Draai tanks
+
+Een tank kan enkel vooruit of achteruit bewegen, om dus naar links of rechts te gaan moet je de tank zelf draaien. 
+Draaien heeft geen voorwaarden. 
 
 ### Beweeg tanks
 
