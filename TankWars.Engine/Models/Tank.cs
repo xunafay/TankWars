@@ -14,6 +14,18 @@ internal sealed class Tank
 
     internal bool IsDestroyed => Health <= 0;
 
+    internal bool Rotate(TankDirection newOrientation)
+    {
+        if (IsDestroyed 
+            || newOrientation.IsOpposite(Orientation))
+        {
+            return false;
+        }
+
+        Orientation = newOrientation;
+        return true;
+    }
+
     internal Bullet? Fire()
     {
         if (IsDestroyed
