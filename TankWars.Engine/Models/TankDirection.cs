@@ -10,15 +10,15 @@ internal enum TankDirection
 
 internal static class TankDirectionExtensions
 {
-    extension(TankDirection directon)
+    extension(TankDirection direction)
     {
-        internal bool IsOpposite(TankDirection otherDirecton) => otherDirecton switch
+        internal bool IsOpposite(TankDirection otherDirection) => otherDirection switch
         {
-            TankDirection.North => directon == TankDirection.South,
-            TankDirection.South => directon == TankDirection.North,
-            TankDirection.East => directon == TankDirection.West,
-            TankDirection.West => directon == TankDirection.East,
-            _ => throw new ArgumentException(null, nameof(otherDirecton))
+            TankDirection.North => direction == TankDirection.South,
+            TankDirection.South => direction == TankDirection.North,
+            TankDirection.East => direction == TankDirection.West,
+            TankDirection.West => direction == TankDirection.East,
+            _ => throw new ArgumentException(null, nameof(otherDirection))
         };
     }
 }
