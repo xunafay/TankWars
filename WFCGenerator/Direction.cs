@@ -1,6 +1,6 @@
 ﻿namespace WFCGenerator;
 
-internal static class Directions
+internal static class Direction
 {
     public const int Left = 0;
     public const int Top = 1;

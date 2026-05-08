@@ -1,11 +1,16 @@
-﻿namespace WFCGenerator;
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace WFCGenerator;
 
 public class WFCGenerator
 {
     private readonly WFCSettings _settings;
-    private readonly IEnumerable<IEnumerable<int>> _patterns;
+    private readonly IEnumerable<State> _patterns;
+    private readonly int[] _directionOffsetsX = [-1, 0, 1, 0];
+    private readonly int[] _directionOffsetsY = [0, 1, 0, -1];
 
     private readonly Random _random;
+    private List<int>[][] _propogator;
 
     public WFCGenerator(WFCSettings settings)
     {
@@ -22,7 +27,8 @@ public class WFCGenerator
         return [];
     }
 
-    private IEnumerable<IEnumerable<int>> GeneratePatterns()
+    [MemberNotNull(nameof(_propogator))]
+    private IEnumerable<State> GeneratePatterns()
     {
         var patterns = new Dictionary<int, State>();
 
@@ -56,7 +62,51 @@ public class WFCGenerator
             }
         }
 
-        return (IEnumerable<IEnumerable<int>>)patterns;
+        State[] states = [.. patterns.Values];
+
+        _propogator = new List<int>[4][];
+        for (int direction = 0; direction < 4; ++direction)
+        {
+            for (int patternIdx = 0; patternIdx < patterns.Count; patternIdx++)
+            {
+                _propogator[direction][patternIdx] = [];
+
+                for (int candidatePatternIdx = 0; candidatePatternIdx < patterns.Count; ++candidatePatternIdx)
+                {
+                    if (CanPatternOverlap(states, patternIdx, candidatePatternIdx, direction))
+                    {
+                        _propogator[direction][patternIdx].Add(candidatePatternIdx);
+                    }
+                }
+            }
+        }
+
+        // TODO
+        // refactor this method or move everything to constructor. It is weird that this is returned but _propgator is set within the method.
+        // but they should be set in the same method because they relly on eachother
+        return states;
+    }
+
+    private bool CanPatternOverlap(State[] patterns, int patternIdx, int candidatePatternIdx, int direction)
+    {
+        int startMatchX = _directionOffsetsX[direction] < 0 ? 0 : _directionOffsetsX[direction];
+        int startMatchY = _directionOffsetsY[direction] < 0 ? 0 : _directionOffsetsY[direction];
+        int endMatchX = Math.Min(_directionOffsetsX[direction], 0) + _settings.SampleWidth;
+        int endMatchY = Math.Min(_directionOffsetsY[direction], 0) + _settings.SampleHeight;
+
+        for (int y = startMatchY; y < endMatchY; y += _settings.SampleWidth)
+        {
+            for (int x = startMatchX; x < endMatchX; ++x)
+            {
+                if (patterns[patternIdx].Pattern[x + y] !=
+                    patterns[candidatePatternIdx].Pattern[x - _directionOffsetsX[direction] + y - (_directionOffsetsY[direction] * _settings.SampleWidth)])
+                {
+                    return false;
+                }
+            }
+        }
+
+        return true;
     }
 
     public int HashSample(List<byte> sample)
