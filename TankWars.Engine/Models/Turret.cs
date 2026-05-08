@@ -9,12 +9,12 @@ internal sealed class Turret
     internal int RemainingAmmo { get; private set; }
     internal int BulletSpeed { get; private init; }
 
-    internal Turret(TurretDirection initialOrientation, int cooldownPerShot, int remainingAmmo, int bulletSpeed)
+    internal Turret(TurretDirection initialOrientation, int cooldownPerShot, int startingAmmo, int bulletSpeed)
     {
         Orientation = initialOrientation;
         CurrentCooldown = 0;
         CooldownPerShot = cooldownPerShot;
-        RemainingAmmo = remainingAmmo;
+        RemainingAmmo = startingAmmo;
         BulletSpeed = bulletSpeed;
     }
 
