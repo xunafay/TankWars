@@ -2,12 +2,24 @@ namespace TankWars.Engine.Models;
 
 internal sealed class Turret
 {
-    internal required TurretDirection Orientation { get; set; }
+    internal TurretDirection Orientation { get; private set; }
 
-    internal required int CurrentCooldown { get; set; }
-    internal required int CooldownPerShot { get; init; }
-    internal required int RemainingAmmo { get; set; }
-    internal required int BulletSpeed { get; init; }
+    internal int CurrentCooldown { get; private set; }
+    internal int CooldownPerShot { get; private init; }
+    internal int RemainingAmmo { get; private set; }
+    internal int BulletSpeed { get; private init; }
+
+    internal Turret(TurretDirection initialOrientation, int cooldownPerShot, int remainingAmmo, int bulletSpeed)
+    {
+        Orientation = initialOrientation;
+        CurrentCooldown = 0;
+        CooldownPerShot = cooldownPerShot;
+        RemainingAmmo = remainingAmmo;
+        BulletSpeed = bulletSpeed;
+    }
+
+    internal void Rotate(TurretDirection newOrientation) 
+        => Orientation = newOrientation;
 
     internal bool Fire()
     {
