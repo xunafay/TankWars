@@ -51,7 +51,7 @@ internal sealed class Tank
     internal Bullet? Fire()
     {
         if (IsDestroyed
-            || !Turret.Fire())
+            || !Turret.TryFire())
         {
             return null;
         }

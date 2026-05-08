@@ -45,7 +45,7 @@ internal sealed class Turret
     internal void Rotate(OrdinalDirection newOrientation)
         => Orientation = newOrientation;
 
-    internal bool Fire()
+    internal bool TryFire()
     {
         if (RemainingAmmo == 0
             && CurrentCooldown > 0)
