@@ -20,13 +20,13 @@ internal sealed class Tank
     internal int MaxHealth { get; private init; }
 
     internal Coordinate Position { get; set; }
-    internal TankDirection Orientation { get; private set; }
+    internal CardinalDirection Orientation { get; private set; }
 
     internal Turret Turret { get; private init; }
 
     internal bool IsDestroyed => Health == 0;
 
-    internal Tank(string id, int maxHealth, Coordinate startingPosition, TankDirection initialOrientation, Turret turret)
+    internal Tank(string id, int maxHealth, Coordinate startingPosition, CardinalDirection initialOrientation, Turret turret)
     {
         Id = id;
         MaxHealth = maxHealth;
@@ -36,7 +36,7 @@ internal sealed class Tank
         Turret = turret;
     }
 
-    internal bool Rotate(TankDirection newOrientation)
+    internal bool Rotate(CardinalDirection newOrientation)
     {
         if (IsDestroyed
             || newOrientation.IsOpposite(Orientation))

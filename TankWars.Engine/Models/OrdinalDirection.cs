@@ -1,6 +1,6 @@
 namespace TankWars.Engine.Models;
 
-public enum TurretDirection
+public enum OrdinalDirection
 {
     North = 0,
     East = 1,
