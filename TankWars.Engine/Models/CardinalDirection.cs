@@ -8,7 +8,7 @@ internal enum CardinalDirection
     West = 3
 }
 
-internal static class TankDirectionExtensions
+internal static class CardinalDirectionExtensions
 {
     extension(CardinalDirection direction)
     {
