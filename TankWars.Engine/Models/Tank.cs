@@ -2,17 +2,27 @@ namespace TankWars.Engine.Models;
 
 internal sealed class Tank
 {
-    internal required string Id { get; init; }
+    internal string Id { get; private init; }
 
-    internal required int Health { get; set; }
-    internal required int MaxHealth { get; init; }
+    internal int Health { get; set; }
+    internal int MaxHealth { get; private init; }
 
-    internal required Coordinate Position { get; set; }
-    internal required TankDirection Orientation { get; set; }
+    internal Coordinate Position { get; set; }
+    internal TankDirection Orientation { get; private set; }
 
-    internal required Turret Turret { get; init; }
+    internal Turret Turret { get; private init; }
 
     internal bool IsDestroyed => Health <= 0;
+
+    internal Tank(string id, int maxHealth, Coordinate startingPosition, TankDirection initialOrientation, Turret turret)
+    {
+        Id = id;
+        MaxHealth = maxHealth;
+        Health = MaxHealth;
+        Position = startingPosition;
+        Orientation = initialOrientation;
+        Turret = turret;
+    }
 
     internal bool Rotate(TankDirection newOrientation)
     {
