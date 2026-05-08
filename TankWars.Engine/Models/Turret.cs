@@ -4,9 +4,33 @@ internal sealed class Turret
 {
     internal TurretDirection Orientation { get; private set; }
 
-    internal int CurrentCooldown { get; private set; }
+    internal int CurrentCooldown
+    {
+        get;
+        set
+        {
+            field = value;
+            if (field < 0)
+            {
+                field = 0;
+            }
+        }
+    }
+
     internal int CooldownPerShot { get; private init; }
-    internal int RemainingAmmo { get; private set; }
+    internal int RemainingAmmo
+    {
+        get; 
+        set
+        {
+            field = value;
+            if (field < 0)
+            {
+                field = 0;
+            }
+        }
+    }
+    
     internal int BulletSpeed { get; private init; }
 
     internal Turret(TurretDirection initialOrientation, int cooldownPerShot, int startingAmmo, int bulletSpeed)
@@ -18,7 +42,7 @@ internal sealed class Turret
         BulletSpeed = bulletSpeed;
     }
 
-    internal void Rotate(TurretDirection newOrientation) 
+    internal void Rotate(TurretDirection newOrientation)
         => Orientation = newOrientation;
 
     internal bool Fire()
