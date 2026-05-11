@@ -43,7 +43,7 @@ Als alle voorwaarden goed zijn gaat de tank naar de volgende tile.
 
 ### Draai turrets
 
-Als een bot vraagt om de tank te draaien, draait de tank naar de nieuwe richting.
+Als een bot vraagt om de turret te draaien, draait de turret naar de nieuwe richting.
 
 ### Schiet voor elke tank
 
