@@ -20,4 +20,7 @@ internal sealed class Game
     {
         return [];
     }
+
+    internal Tank GetTankForBot(PlayerBot bot)
+        => Tanks.First(v => v.Id == bot.Id);
 }
