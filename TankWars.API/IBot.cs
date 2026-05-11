@@ -2,4 +2,5 @@
 
 public interface IBot
 {
+    CardinalDirection GetTankRotation();
 }

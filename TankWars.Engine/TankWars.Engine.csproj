@@ -10,4 +10,8 @@
     <ProjectReference Include="../TankWars.API/TankWars.API.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Extensions/" />
+  </ItemGroup>
+
 </Project>

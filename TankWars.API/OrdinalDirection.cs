@@ -1,4 +1,4 @@
-namespace TankWars.Engine.Models;
+namespace TankWars.API;
 
 public enum OrdinalDirection
 {

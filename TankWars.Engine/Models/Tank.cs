@@ -1,8 +1,10 @@
+using TankWars.Engine.Extensions;
+
 namespace TankWars.Engine.Models;
 
 internal sealed class Tank
 {
-    internal string Id { get; private init; }
+    internal int Id { get; private init; }
 
     internal int Health
     {
@@ -19,7 +21,7 @@ internal sealed class Tank
 
     internal bool IsDestroyed => Health == 0;
 
-    internal Tank(string id, int maxHealth, Coordinate startingPosition, CardinalDirection initialOrientation, Turret turret)
+    internal Tank(int id, int maxHealth, Coordinate startingPosition, CardinalDirection initialOrientation, Turret turret)
     {
         Id = id;
         MaxHealth = maxHealth;
