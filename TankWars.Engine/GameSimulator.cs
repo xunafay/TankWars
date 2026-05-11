@@ -1,4 +1,4 @@
-using TankWars.Engine.Models;
+using TankWars.API;
 using TankWars.Engine.TurnSteps;
 
 namespace TankWars.Engine;
@@ -9,9 +9,9 @@ internal sealed class GameSimulator
 
     internal bool IsFinished { get; private set; }
 
-    internal GameSimulator(World world, List<Tank> tanks)
+    internal GameSimulator(World world, List<IBot> bots)
     {
-        _game = new(world, tanks);
+        _game = new(world, bots);
         IsFinished = false;
     }
 
