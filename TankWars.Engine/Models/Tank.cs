@@ -6,15 +6,8 @@ internal sealed class Tank
 
     internal int Health
     {
-        get;
-        set
-        {
-            field = value;
-            if (field < 0)
-            {
-                field = 0;
-            }
-        }
+        get; 
+        set => field = Math.Clamp(value, 0, MaxHealth);
     }
 
     internal int MaxHealth { get; private init; }

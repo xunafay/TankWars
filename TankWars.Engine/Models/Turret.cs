@@ -7,28 +7,14 @@ internal sealed class Turret
     internal int CurrentCooldown
     {
         get;
-        set
-        {
-            field = value;
-            if (field < 0)
-            {
-                field = 0;
-            }
-        }
+        set => field = Math.Clamp(value, 0, CooldownPerShot);
     }
 
     internal int CooldownPerShot { get; private init; }
     internal int RemainingAmmo
     {
         get; 
-        set
-        {
-            field = value;
-            if (field < 0)
-            {
-                field = 0;
-            }
-        }
+        set => field = Math.Clamp(value, 0, 100);
     }
     
     internal int BulletSpeed { get; private init; }
