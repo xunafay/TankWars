@@ -1,12 +1,6 @@
-namespace TankWars.Engine.Models;
+using TankWars.API;
 
-internal enum CardinalDirection
-{
-    North = 0,
-    East = 1,
-    South = 2,
-    West = 3
-}
+namespace TankWars.Engine.Extensions;
 
 internal static class CardinalDirectionExtensions
 {
