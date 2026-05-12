@@ -1,5 +1,3 @@
-using TankWars.Engine.Models;
-
 namespace TankWars.Engine;
 
 internal sealed class World

@@ -2,5 +2,7 @@ namespace TankWars.Engine.TurnSteps;
 
 internal interface ITurnStep
 {
-    void Execute(Game game);
+    void BeforeExecute(Game game);
+    void Execute(PlayerBot bot, Game game);
+    void AfterExecute(Game game);
 }
