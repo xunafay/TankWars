@@ -8,7 +8,7 @@ internal sealed class Tank
 
     internal int Health
     {
-        get; 
+        get;
         set => field = Math.Clamp(value, 0, MaxHealth);
     }
 
@@ -18,6 +18,9 @@ internal sealed class Tank
     internal CardinalDirection Orientation { get; private set; }
 
     internal Turret Turret { get; private init; }
+
+    internal bool HasTurned { get; set; } = false;
+    internal bool HasMoved { get; set; } = false;
 
     internal bool IsDestroyed => Health == 0;
 

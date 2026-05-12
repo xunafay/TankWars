@@ -6,6 +6,12 @@ internal sealed class ResetTankStatesStep : ITurnStep
 
     public void Execute(PlayerBot bot, Game game)
     {
+        var tank = game.GetTankForBot(bot);
+
+        tank.HasTurned = false;
+        tank.HasMoved = false;
+
+        tank.Turret.CurrentCooldown--;
     }
 
     public void AfterExecute(Game game) { }
