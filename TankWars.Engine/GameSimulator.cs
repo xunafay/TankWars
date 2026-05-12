@@ -31,9 +31,21 @@ internal sealed class GameSimulator
             return true;
         }
 
+        foreach (var bot in _game.AliveBots)
+        {
+            bot.DoTurn();
+        }
+
         foreach (var step in GetSteps())
         {
-            step.Execute(_game);
+            step.BeforeExecute(_game);
+
+            foreach (var bot in _game.AliveBots)
+            {
+                step.Execute(bot, _game);
+            }
+
+            step.AfterExecute(_game);
         }
 
         CheckGameState();

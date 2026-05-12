@@ -2,13 +2,19 @@ namespace TankWars.Engine.TurnSteps;
 
 internal sealed class RotateTurretsStep : ITurnStep
 {
-    public void Execute(Game game)
+    public void BeforeExecute(Game game) { }
+
+    public void Execute(PlayerBot bot, Game game)
     {
-        foreach (var bot in game.Bots)
+        var orientation = bot.CurrentTurn.RotateTurretTo;
+        if (!orientation.HasValue)
         {
-            var orientation = bot.Implementation.GetTurretRotation();
-            var tank = game.GetTankForBot(bot);
-            tank.Turret.Rotate(orientation);
+            return;
         }
+
+        var tank = game.GetTankForBot(bot);
+        tank.Turret.Rotate(orientation.Value);
     }
+
+    public void AfterExecute(Game game) { }
 }

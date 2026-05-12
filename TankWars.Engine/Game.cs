@@ -1,5 +1,3 @@
-using TankWars.Engine.Models;
-
 namespace TankWars.Engine;
 
 internal sealed class Game
@@ -8,6 +6,8 @@ internal sealed class Game
     internal List<PlayerBot> Bots { get; init; }
     internal List<Tank> Tanks { get; }
     internal List<Bullet> Bullets { get; } = [];
+
+    internal List<PlayerBot> AliveBots => Bots.Where(bot => !GetTankForBot(bot).IsDestroyed).ToList();
 
     internal Game(World world, List<IBot> bots)
     {
