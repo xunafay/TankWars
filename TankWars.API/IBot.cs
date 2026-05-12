@@ -3,5 +3,6 @@
 public interface IBot
 {
     CardinalDirection GetTankRotation();
+    CardinalDirection MoveTank();
     OrdinalDirection GetTurretRotation();
 }
