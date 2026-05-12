@@ -6,6 +6,20 @@ internal sealed class FireTanksStep : ITurnStep
 
     public void Execute(PlayerBot bot, Game game)
     {
+        if (!bot.CurrentTurn.ShouldShoot)
+        {
+            return;
+        }
+
+        var tank = game.GetTankForBot(bot);
+        
+        var bullet = tank.Fire();
+        if (bullet is null)
+        {
+            return;
+        }
+
+        game.Bullets.Add(bullet);
     }
 
     public void AfterExecute(Game game) { }

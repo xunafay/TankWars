@@ -16,4 +16,9 @@ public sealed class TurnResult
     /// Direction to rotate the turret to, if null then the turret will not rotate
     /// </summary>
     public OrdinalDirection? RotateTurretTo { get; set; } = null;
+
+    /// <summary>
+    /// Set whether or not the tank should shoot during its turn
+    /// </summary>
+    public bool ShouldShoot { get; set; } = false;
 }
