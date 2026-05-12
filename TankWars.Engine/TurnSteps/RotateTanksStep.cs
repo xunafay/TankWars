@@ -14,6 +14,7 @@ internal sealed class RotateTanksStep : ITurnStep
 
         var tank = game.GetTankForBot(bot);
         tank.Rotate(orientation.Value);
+        tank.HasTurned = true;
     }
 
     public void AfterExecute(Game game) { }

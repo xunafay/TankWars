@@ -23,7 +23,8 @@ internal sealed class MoveTanksStep : ITurnStep
         }
 
         var tank = game.GetTankForBot(bot);
-        if (tank.Orientation.IsPerpendicular(newOrientation.Value))
+        if (tank.HasTurned
+            || tank.Orientation.IsPerpendicular(newOrientation.Value))
         {
             return;
         }
@@ -44,6 +45,7 @@ internal sealed class MoveTanksStep : ITurnStep
             if (_nextPositionForTanks.Count(kvp => kvp.Value == nextPosition) == 1)
             {
                 tank.Position = nextPosition;
+                tank.HasMoved = true;
             }
         }
     }

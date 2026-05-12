@@ -34,7 +34,7 @@ internal sealed class Turret
     internal bool TryFire()
     {
         if (RemainingAmmo == 0
-            && CurrentCooldown > 0)
+            || CurrentCooldown > 0)
         {
             return false;
         }
