@@ -1,3 +1,4 @@
 <Solution>
+  <Project Path="../WFCGeneratorTestProject/WFCGeneratorTestProject.csproj" Id="ccfbf010-6c85-41b0-b147-28c22a6ac4c3" />
   <Project Path="WFCGenerator.csproj" />
 </Solution>

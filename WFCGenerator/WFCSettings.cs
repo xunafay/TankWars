@@ -14,7 +14,7 @@ public record struct WFCSettings
         get; init;
     }
 
-    public required int Width
+    public required int ExampleWidth
     {
         get; init;
     }
